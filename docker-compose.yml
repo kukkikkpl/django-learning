@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  backend-django:
+    container_name: backend-django-test
+    build:
+      context: .
+      dockerfile: DockerFileBackend-Django
+    command: sh -c "while sleep 3600; do :; done"  # do nothing forever, running command is in README.md
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/source
